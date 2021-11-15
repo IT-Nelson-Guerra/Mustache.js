@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookshelf</title>
+</head>
+
+<style>
+    @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+    body {
+        font-family: sans-serif;
+        background-color: #f3f3f3;
+        background-color: #f3f3f3;
+        color: #6194e0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container h1 {
+        display: flex;
+        justify-content: center;
+        height: 2.5em;
+        width: 36em;
+        border-bottom-style: solid;
+        letter-spacing: 3px;
+        font-size: 25px;
+    }
+    
+    .container h3 {
+        margin-top: 0;
+        height: 1em;
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+    
+    .book-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        height: 500px;
+        width: 400px;
+    }
+    /*---------Book Covers*/
+    
+    .book-cover {
+        background-image: url("http://books.google.com/books/content?id=nv9lZM_0RI4C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71GEERQ4dWa_q_NqdIvJ50QkqZwIRonEukVRvBP30LmLj5551nIrC3mQzNdm2gcFw4ZBCrAcOUxrQGJo23RZrlEAJ0krIcL2-gnAXkFVGg-5_tXRY9bVlFeq6bWaNufJQ6569bq&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover2 {
+        background-image: url("http://books.google.com/books/content?id=mFMG1eUXyfcC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE7108Y7UJIHABcc6mWORdKk5bsLxP5Gnw6rWQvA2l6hM5t28twseetJUDsXqIkiYd9r3FfLrn5SvaeDak5KItbzTBJm9VCtLRCls_OnjjOuB6GvmDixvYi0C-GAsQ9KsemdabPwA&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover3 {
+        background-image: url("http://books.google.com/books/content?id=BG3P0sFxnT4C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73BbwiENs4PGJRkLESYMC-YaKLR9REwp5rrYD_ERvr-RmzYjNX7_ASgFF_xRzncMpOx2POfUqTlkhiV2LLsCbZJxxTiJK4wRENeZnUMZbxkQBHbjqtnDWG9mSCHhiZJanDDcjND&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover4 {
+        background-image: url("https://books.google.com/books/content?id=NruUsGqAcSAC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71aZxm_9VVXeWrR6Ji4_VAG2GxTV2Hg87na8VZNYYkhWYZV5KI_3HcV1XTNd2HO1KtI_Hxy8NyAFKJ9IFLCzgNdJkUiX7Cu9CdVGlKSicUdp0D72zsoF1TENaQ-hgqV_v5slc3f&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover5 {
+        background-image: url("https://books.google.com/books/publisher/content?id=98ycCwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE716w8J5UTVIkPeoTmTK5KPMvXBuz7a3o3xIyf8lAuLcMt47LuljLQ9Ea02YRrtAeC_mvoBsOH2c_xs3FTTqxCeF25Pkne1cKqRdhGC9U2M0FkXGZSdk5dXDqynuEEIK-uipYwJD&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover6 {
+        background-image: url("https://books.google.com/books/publisher/content?id=KQlVCwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE726weduv_dRtcGifjMTVszd6TIqwfIzB7kCdKZngKwl1MFRAFHd5K0Bh-CKrSLVx5TE1dchBBj83n6auw5r86x5GU4IQs8T5CabIctXBupxpQ5A89u74R8JKAyRLH2w4VIIbT7A&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover7 {
+        background-image: url("https://books.google.com/books/content?id=aB6jWdpdcZgC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73CwwNZmUt_RCA-_KBovOIQcpPfHW_quxhmafRZdj9IBY96M3QnTG1VHo09sDgHolrNlafS60SoVen9wrVqZ6QeeZ_iLrm6Ljp4hB0Di2wE_bk4nRJ13CeFjBAz7h3XSJOUwpJL&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover8 {
+        background-image: url("https://books.google.com/books/publisher/content?id=N4NcDgAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73DyksueS6uSDwyz59Rldc4kv2Ba3WmMs2Y0WkclwevZphaMH4oArIcU2r9lGw0awy82l1VMAuvFVE8ybPqG6rxiatIY9bULtIVPgxHPTBonCIw2MngiojALufHXxG2oncDsXpX&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover9 {
+        background-image: url("https://books.google.com/books/publisher/content?id=sS2LBAAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72P2XHRpDM1XfsHgrUMF2yRuxkAZ9jtD7UnU2DD4uv-zL43lImwFV4RjiJf1MqfgqbhK9FYpKQXmppmKZVItczlNYxEdRNceuP2lyNhRPsYL3Tp0aIcZTIJtQ4zeFII58zmL75c&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    
+    .book-cover10 {
+        background-image: url("https://books.google.com/books/publisher/content?id=r5-mAwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73ZTQqbC8nXQ5Pjb5rdKKvG0c65-UmoyGkMCS9fM9ZHGfQfAG6lRIfQzIhXEvfaNL7dSVliK29sY69IujBxZg0aN9iFVm3agxwrpNnmwy5YwyxGz3t2LGXy52AZdtdh-ehgUNfh&source=gbs_api");
+        height: 380px;
+        width: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+        border-radius: 20px;
+    }
+    /*---------Descriptions*/
+    
+    .authors {
+        letter-spacing: 3px;
+        margin-top: 1em;
+    }
+    
+    .description-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100vw;
+    }
+    
+    .description-container {
+        width: 700px;
+        height: 50em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: rgb(235, 235, 235);
+        padding: 20px;
+        margin-bottom: 20px;
+        padding-top: 0;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+    }
+    /* For book #8*/
+    
+    .description-box2 {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100vw;
+    }
+    
+    .description-container2 {
+        width: 700px;
+        height: 105em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: rgb(68, 68, 68);
+        padding: 20px;
+        margin-bottom: 20px;
+        padding-top: 0;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+    }
+    
+    .details-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 400px;
+        height: 40em;
+    }
+    
+    .details-box {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        margin: 0;
+    }
+    
+    .details-box p {
+        margin-left: .8em;
+    }
+    
+    .details-box a {
+        color: rgb(68, 134, 255);
+        margin-left: .8em;
+        text-decoration: none;
+    }
+    /*---------RATINGS*/
+    
+    .userRating {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+    /*--------Star Rating */
+    
+    .rating {
+        border: none;
+        float: left;
+    }
+    
+    .rating>input {
+        display: none;
+    }
+    
+    .rating>label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+    
+    .rating>.half:before {
+        content: "\f089";
+        position: absolute;
+    }
+    
+    .rating>label {
+        color: #ddd;
+        float: right;
+    }
+    
+    .menu {
+        display: flex;
+        width: 22em;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: .5em;
+        font-size: 20px;
+        font-family: 'Lato', sans-serif;
+    }
+    
+    .grow {
+        transition: 1s ease;
+    }
+    
+    .grow:hover {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        transition: 1s ease;
+    }
+    /*-----CSS Stars on Hover */
+    
+    .rating>input:checked~label,
+    /*------show gold star when clicked */
+    
+    .rating:not(:checked)>label:hover,
+    /*-------hover current star */
+    
+    .rating:not(:checked)>label:hover~label {
+        color: #FFD700;
+    }
+    /*-------hover previous stars in list */
+    
+    .rating>input:checked+label:hover,
+    /*-------hover current star when changing rating */
+    
+    .rating>input:checked~label:hover,
+    .rating>label:hover~input:checked~label,
+    /*-------lighten current selection */
+    
+    .rating>input:checked~label:hover~label {
+        color: #FFED85;
+    }
+</style>
+
+<body>
+
+    <div class="menu">
+        <div class="home-button grow" style="margin-left: 5em;">
+            <a href="index.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">Home</a>
+        </div>
+        <div class="home-button grow">
+            <a href="index.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">|</a>
+        </div>
+        <div class="bookshelf grow">
+            <a href="bookshelf.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">My Bookshelf</a>
+        </div>
+        <div id="onSignIn"></div>
+    </div>
+
+
+    <div class="volumeInfo" id="app"></div>
+    <div class="volumeInfo" id="app2"></div>
+    <div class="volumeInfo" id="app3"></div>
+    <div class="volumeInfo" id="app4"></div>
+    <div class="volumeInfo" id="app5"></div>
+    <div class="volumeInfo" id="app6"></div>
+    <div class="volumeInfo" id="app7"></div>
+    <div class="volumeInfo" id="app8"></div>
+    <div class="volumeInfo" id="app9"></div>
+    <div class="volumeInfo" id="app10"></div>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+
+    <!--All the Javascript for translating the JSON file provided------------------------------------->
+    <script type="text/javascript">
+        let title = [];
+
+        fetch('https://www.googleapis.com/books/v1/volumes/nv9lZM_0RI4C')
+            .then(function(response) {
+                return response.json();
+            }).then(data => {
+                console.log(data);
+                document.getElementById("app").innerHTML = `
+                <div class="container">
+                <h1>${data.volumeInfo.title}</h1>
+                <h3>${data.volumeInfo.subtitle}</h3>
+
+
+                <div class="book-container">
+                <div class="book-cover"></div>
+                <div class="authors">Written by ${data.volumeInfo.authors}</div>
+                <div class="rating">
+            <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+            </div>
+            <div class="userRating"> Average Rating: 4.5 / 5</div>
+                </div>
+            </div>
+
+                <div class="description-box">
+                <div class="description-container">
+                <p>${data.volumeInfo.description}</p>
+
+                <div class="details-container">
+                <div class="details-box">
+                <h4>Publisher:</h4>
+                <p>${data.volumeInfo.publisher}</p>
+                </div>
+
+
+                <div class="details-box">
+                <h4>Published Date:</h4>
+                <p>${data.volumeInfo.publishedDate}</p>
+                </div>
+
+                <div class="details-box">
+                <h4>Page Count:</h4>
+                <p>${data.volumeInfo.pageCount}</p>
+                </div>
+
+                <div class="details-box">
+                <h4>Language:</h4>
+                <p>${data.volumeInfo.language}</p>
+                </div>
+
+
+                <div class="details-box">
+                <h4>Sample:</h4>
+                <a target="_blank" href="https://play.google.com/books/reader?id=nv9lZM_0RI4C&pg=GBS.PP1&hl=&printsec=frontcover&source=gbs_api">
+                    Read a sample...</a>
+                </div>
+
+                </div>
+
+
+
+                </div>
+                </div>
+
+
+                <!--NEW BOOK---------------------------------------------------------->
+
+
+
+                <!--NEW BOOK---------------------------------------------------------->
+                `;
+            });
+    </script>
+    <script type="text/javascript">
+        let title2 = [];
+
+        fetch('https://www.googleapis.com/books/v1/volumes/mFMG1eUXyfcC')
+            .then(function(response) {
+                return response.json();
+            }).then(data => {
+                console.log(data);
+                document.getElementById("app2").innerHTML = `
+                <div class="container">
+                <h1>${data.volumeInfo.title}</h1>
+                <h3>${data.volumeInfo.subtitle}</h3>
+
+
+                <div class="book-container">
+                <div class="book-cover2"></div>
+                <div class="authors">Written by ${data.volumeInfo.authors}</div>
+                <div class="rating">
+            <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+            </div>
+            <div class="userRating"> Average Rating: 4.5 / 5</div>
+                </div>
+            </div>
+
+                <div class="description-box">
+                <div class="description-container">
+                <p>${data.volumeInfo.description}</p>
+
+                <div class="details-container">
+                <div class="details-box">
+                <h4>Publisher:</h4>
+                <p>${data.volumeInfo.publisher}</p>
+                </div>
+
+
+                <div class="details-box">
+                <h4>Published Date:</h4>
+                <p>${data.volumeInfo.publishedDate}</p>
+                </div>
+
+                <div class="details-box">
+                <h4>Page Count:</h4>
+                <p>${data.volumeInfo.pageCount}</p>
+                </div>
+
+                <div class="details-box">
+                <h4>Language:</h4>
+                <p>${data.volumeInfo.language}</p>
+                </div>
+
+                <div class="details-box">
+                <h4>Sample:</h4>
+                <a target="_blank" href="https://play.google.com/books/reader?id=mFMG1eUXyfcC&hl=&printsec=frontcover&source=gbs_api">
+                    Read a sample...</a>
+                </div>
+
+                </div>
+
+
+
+                </div>
+                </div>
+
+
+
+                <!--NEW BOOK---------------------------------------------------------->
+                `;
+            });
+    </script>
+
+    <script>
+    </script>
+
+    <script type="text/javascript">
+        let title3 = [];
+
+        fetch('https://www.googleapis.com/books/v1/volumes/BG3P0sFxnT4C')
+            .then(function(response) {
+                return response.json();
+            }).then(data => {
+                console.log(data);
+                document.getElementById("app3").innerHTML = `
+            <div class="container">
+            <h1>${data.volumeInfo.title}</h1>
+            <h3>${data.volumeInfo.subtitle}</h3>
+
+
+            <div class="book-container">
+            <div class="book-cover3"></div>
+            <div class="authors">Written by ${data.volumeInfo.authors}</div>
+            <div class="rating">
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+        </div>
+        <div class="userRating"> Average Rating: 4.5 / 5</div>
+            </div>
+        </div>
+
+            <div class="description-box">
+            <div class="description-container">
+            <p>${data.volumeInfo.description}</p>
+
+            <div class="details-container">
+            <div class="details-box">
+            <h4>Publisher:</h4>
+            <p>${data.volumeInfo.publisher}</p>
+            </div>
+
+
+            <div class="details-box">
+            <h4>Published Date:</h4>
+            <p>${data.volumeInfo.publishedDate}</p>
+            </div>
+
+            <div class="details-box">
+            <h4>Page Count:</h4>
+            <p>${data.volumeInfo.pageCount}</p>
+            </div>
+
+            <div class="details-box">
+            <h4>Language:</h4>
+            <p>${data.volumeInfo.language}</p>
+            </div>
+
+            <div class="details-box">
+            <h4>Sample:</h4>
+            <a target="_blank" href="https://play.google.com/books/reader?id=BG3P0sFxnT4C&pg=GBS.PT2&hl=&printsec=frontcover&source=gbs_api">
+                Read a sample...</a>
+            </div>
+
+            </div>
+
+
+
+            </div>
+            </div>
+
+
+
+            <!--NEW BOOK---------------------------------------------------------->
+            `;
+
+
+
+
+
+            });
+    </script>
+
+    <script>
+        var myData = [{
+            "name": "Joe Smith",
+            "phone": "(212) 555-1212",
+            "accountNumber": "123456",
+            "title": "East Coast Sales"
+        }, {
+            "name": "Sue Frost",
+            "phone": "(212) 555-3131",
+            "accountNumber": "654321",
+            "title": "West Coast Sales"
+        }, {
+            "name": "Jim Murphy",
+            "phone": "(212) 555-4545",
+            "accountNumber": "987654",
+            "title": "International Sales"
+        }];
+
+        $.each(myData, function(index, item) {
+
+            var html = '' +
+                '<div class="dataItem">' +
+                '<p><b>{{name}}:</b> {{title}}</p>' +
+                '</div>';
+
+            $('body').append(Mustache.render(html, item));
+        });
+    </script>
+
+
+</body>
+
+</html>

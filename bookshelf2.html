@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bookshelf 2</title>
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            font-size: 22px;
+            height: 100vh;
+        }
+        
+        b {
+            font-weight: bold;
+            color: #2fa8c0;
+            font-size: 25px;
+        }
+        
+        h1,
+        h2,
+        h3,
+        .dataItem {
+            width: 60%;
+            margin: 20px auto 0;
+            padding: 1%;
+            border-radius: 5px;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 32px;
+        }
+        
+        .dataItem {
+            position: relative;
+            background-color: #ededed;
+            border: 4px solid #6194e0;
+            height: 5em;
+            width: 40em;
+            margin-bottom: 5em;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dataItem p {
+            margin: 5px 0;
+            height: 15em;
+        }
+        /*---------Book Covers*/
+        
+        .book-cover {
+            background-image: url("http://books.google.com/books/content?id=nv9lZM_0RI4C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71GEERQ4dWa_q_NqdIvJ50QkqZwIRonEukVRvBP30LmLj5551nIrC3mQzNdm2gcFw4ZBCrAcOUxrQGJo23RZrlEAJ0krIcL2-gnAXkFVGg-5_tXRY9bVlFeq6bWaNufJQ6569bq&source=gbs_api");
+            height: 19em;
+            width: 40em;
+            margin-top: 5em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            background-color: #fff;
+        }
+        
+        .book-cover2 {
+            background-image: url("http://books.google.com/books/content?id=mFMG1eUXyfcC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE7108Y7UJIHABcc6mWORdKk5bsLxP5Gnw6rWQvA2l6hM5t28twseetJUDsXqIkiYd9r3FfLrn5SvaeDak5KItbzTBJm9VCtLRCls_OnjjOuB6GvmDixvYi0C-GAsQ9KsemdabPwA&source=gbs_api");
+            height: 19em;
+            width: 40em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            background-color: #fff;
+        }
+        
+        .book-cover3 {
+            background-image: url("http://books.google.com/books/content?id=BG3P0sFxnT4C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73BbwiENs4PGJRkLESYMC-YaKLR9REwp5rrYD_ERvr-RmzYjNX7_ASgFF_xRzncMpOx2POfUqTlkhiV2LLsCbZJxxTiJK4wRENeZnUMZbxkQBHbjqtnDWG9mSCHhiZJanDDcjND&source=gbs_api");
+            height: 19em;
+            width: 40em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.589), 0 6px 20px 0 rgba(0, 0, 0, 0.486);
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            background-color: #fff;
+        }
+        /*---------Menu Links*/
+        
+        .menu {
+            display: flex;
+            width: 40em;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: .5em;
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .grow {
+            transition: 1s ease;
+        }
+        
+        .grow:hover {
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            transition: 1s ease;
+        }
+        
+        .input-group {
+            display: flexbox;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .input-group button {
+            display: flexbox;
+            justify-content: space-around;
+            align-items: center;
+            width: 10em;
+            height: 3em;
+            background-color: rgb(31, 109, 255);
+            border-radius: 5px;
+            color: #fff;
+            letter-spacing: 1em;
+            font-size: 15px;
+            font-family: 'Lato', sans-serif;
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <div class="home-button grow">
+                <a href="index.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">Home</a>
+            </div>
+            <div class="home-button grow">
+                <a href="index.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">|</a>
+            </div>
+            <div class="bookshelf grow">
+                <a href="bookshelf.html" style="color: rgb(31, 109, 255); text-decoration: none; letter-spacing: .3em;">My Bookshelf</a>
+            </div>
+            <!--Google Button-->
+            <div id="onSignIn"></div>
+        </div>
+        <h1>Bookshelf using Mustache.js</h1>
+    </header>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script>
+        //The code here is a Mustache template that is being used to display each individual book within my google bookshelf.
+        //Var myData is being used to make a javascript array with details about the each book, then mustache.js is used to make a function,
+        //for displaying the data from the array.
+        //----Book 1
+        var myData = [{
+            "name": "Divergent",
+            "author": " Written by Veronica Roth",
+            "publisher": "Publisher: ",
+            "pub-name": "Harper Collins",
+            "published": "Published:",
+            "publishe-date": "2011-05-03"
+        }];
+
+        $.each(myData, function(index, item) {
+
+            var html = '' +
+                '<div class="dataItem book-cover">' +
+                '<p><b>{{name}}:</b> {{author}} <b> {{publisher}} </b> {{pub-name}} <b> {{published}} </b> {{publishe-date}}</p>' +
+                '</div>';
+
+            $('body').append(Mustache.render(html, item));
+        });
+
+
+        //----Book 2
+        var myData = [{
+            "name": "Allegiant",
+            "author": " Written by Veronica Roth",
+            "publisher": "Publisher: ",
+            "pub-name": "Harper Collins",
+            "published": "Published:",
+            "publishe-date": "2013-10-22"
+        }];
+
+        $.each(myData, function(index, item) {
+
+            var html = '' +
+                '<div class="dataItem book-cover2">' +
+                '<p><b>{{name}}:</b> {{author}} <b> {{publisher}} </b> {{pub-name}} <b> {{published}} </b> {{publishe-date}}</p>' +
+                '</div>';
+
+            $('body').append(Mustache.render(html, item));
+        });
+
+        //----Book 3
+        var myData = [{
+            "name": "Allegiant",
+            "author": " Written by Veronica Roth",
+            "publisher": "Publisher: ",
+            "pub-name": "Harper Collins",
+            "published": "Published:",
+            "publishe-date": "2012-05-01"
+        }];
+
+        $.each(myData, function(index, item) {
+
+            var html = '' +
+                '<div class="dataItem book-cover3">' +
+                '<p><b>{{name}}:</b> {{author}} <b> {{publisher}} </b> {{pub-name}} <b> {{published}} </b> {{publishe-date}}</p>' +
+                '</div>';
+
+            $('body').append(Mustache.render(html, item));
+        });
+    </script>
+</body>
+
+</html>
